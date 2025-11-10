@@ -4,67 +4,52 @@ import { getBlogDetails } from "@/services/blogDetailServices";
 import { getAllBlogPosts } from "@/services/blogServices";
 import { textToSlug } from "@/helper/helper";
 
-// Force static generation - pages will be pre-rendered at build time
-export const dynamic = "force-static";
-export const revalidate = false; // Static pages, no revalidation
+export const dynamic = "force-static"; // ✅ For static export
+export const revalidate = false;
 
-/**
- * Generate static params for all blog detail pages
- * Required for static export with dynamic routes
- * This function MUST be exported for Next.js static export to work
- */
+// ✅ Correct function name and structure
 export async function generateStaticParams() {
-  // Ensure we always return an array, even if the API call fails
-  let params = [];
-
   try {
     const blogPosts = await getAllBlogPosts({ preview: true });
 
-    if (blogPosts && Array.isArray(blogPosts) && blogPosts.length > 0) {
-      params = blogPosts
-        .map((blog) => {
-          // Use slug field from Contentful if available, otherwise generate from title
-          const blogSlug = blog?.slug || (blog?.heroTitle ? textToSlug(blog.heroTitle) : null);
-          const categoryValue = Array.isArray(blog?.category)
-            ? blog?.category[0]
-            : blog?.category;
-          const categorySlug = categoryValue ? textToSlug(categoryValue) : null;
+    if (!Array.isArray(blogPosts)) return [];
 
-          // Only return valid params with both category and blogDetail as strings
-          if (blogSlug && categorySlug && typeof blogSlug === 'string' && typeof categorySlug === 'string') {
-            return {
-              category: categorySlug,
-              blogDetail: blogSlug,
-            };
-          }
-          return null;
-        })
-        .filter((param) => param !== null && param !== undefined); // Remove null/undefined entries
-    }
-  } catch (error) {
-    console.error("Error generating static params:", error);
-    // Return empty array to allow build to continue
-    params = [];
+    return blogPosts
+      .map((blog) => {
+        const blogSlug = blog?.slug || textToSlug(blog?.heroTitle || "");
+        const category = Array.isArray(blog?.category)
+          ? blog.category[0]
+          : blog.category;
+        const categorySlug = textToSlug(category || "");
+
+        if (!blogSlug || !categorySlug) return null;
+
+        return {
+          category: categorySlug,
+          blogDetail: blogSlug,
+        };
+      })
+      .filter(Boolean);
+  } catch (err) {
+    console.error("Error generating static params:", err);
+    return [];
   }
-
-  // Always return an array (never undefined or null)
-  return Array.isArray(params) ? params : [];
 }
 
-const getBlogDetailsData = async ({ blogSlug }) => {
+async function getBlogDetailsData(blogSlug) {
   try {
-    const result = await getBlogDetails({ slug: blogSlug, preview: true });
-    return result;
-  } catch (error) {
-    console.error("Error fetching blog details:", error);
+    return await getBlogDetails({ slug: blogSlug, preview: true });
+  } catch (err) {
+    console.error("Error fetching blog details:", err);
     return null;
   }
-};
+}
 
-const BlogDetails = async ({ params }) => {
+export default async function BlogDetails({ params }) {
   const { category, blogDetail } = await params;
-  const blogDetails = await getBlogDetailsData({ blogSlug: blogDetail });
-  return <BlogDetailPage category={category} blogDetails={blogDetails} />;
-};
+  console.log("category", category);
+  console.log("blogDetail", blogDetail);
+  const blogDetails = await getBlogDetailsData(blogDetail);
 
-export default BlogDetails;
+  return <BlogDetailPage category={category} blogDetails={blogDetails} />;
+}
