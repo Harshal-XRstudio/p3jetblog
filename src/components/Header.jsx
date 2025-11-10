@@ -105,7 +105,7 @@ export default function Header() {
     <header
       className={`sticky top-0 z-50 w-full transition-all duration-300 ${
         isScrolled
-          ? "bg-light_blue/95 dark:bg-gray-950/95 backdrop-blur-md shadow-md"
+          ? "bg-light_blue/70 dark:bg-gray-950/70 backdrop-blur-md shadow-lg border-b border-gray-200/20 dark:border-gray-700/20"
           : "bg-light_blue dark:bg-gray-950"
       }`}>
       <nav
