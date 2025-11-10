@@ -4,32 +4,16 @@ import { getBlogDetails } from "@/services/blogDetailServices";
 import { getAllBlogPosts } from "@/services/blogServices";
 import { textToSlug } from "@/helper/helper";
 
-const getBlogDetailsData = async ({ blogSlug }) => {
-  try {
-    const result = await getBlogDetails({ slug: blogSlug, preview: true });
-    return result;
-  } catch (error) {
-    console.error("Error fetching blog details:", error);
-    return null;
-  }
-};
-
 // Force static generation - pages will be pre-rendered at build time
 export const dynamic = "force-static";
 export const revalidate = false; // Static pages, no revalidation
-
-
-const BlogDetails = async ({ params }) => {
-  const { category, blogDetail } = await params;
-  const blogDetails = await getBlogDetailsData({ blogSlug: blogDetail });
-  return <BlogDetailPage category={category} blogDetails={blogDetails} />;
-};
 
 export async function generateStaticParams() {
   try {
     const blogPosts = await getAllBlogPosts({ preview: true });
 
     if (!blogPosts || !Array.isArray(blogPosts) || blogPosts.length === 0) {
+      console.warn("No blog posts found for generateStaticParams");
       return [];
     }
 
@@ -53,11 +37,29 @@ export async function generateStaticParams() {
       })
       .filter(Boolean); // Remove null/undefined entries
 
+    console.log(`Generated ${params.length} static params`);
     return params;
   } catch (error) {
     console.error("Error generating static params:", error);
+    // Return empty array instead of throwing to allow build to continue
     return [];
   }
 }
+
+const getBlogDetailsData = async ({ blogSlug }) => {
+  try {
+    const result = await getBlogDetails({ slug: blogSlug, preview: true });
+    return result;
+  } catch (error) {
+    console.error("Error fetching blog details:", error);
+    return null;
+  }
+};
+
+const BlogDetails = async ({ params }) => {
+  const { category, blogDetail } = await params;
+  const blogDetails = await getBlogDetailsData({ blogSlug: blogDetail });
+  return <BlogDetailPage category={category} blogDetails={blogDetails} />;
+};
 
 export default BlogDetails;
