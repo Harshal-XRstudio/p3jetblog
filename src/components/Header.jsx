@@ -7,6 +7,7 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isThemeDropdownOpen, setIsThemeDropdownOpen] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
   const themeDropdownDesktopRef = useRef(null);
   const themeDropdownMobileRef = useRef(null);
   const { theme, setTheme } = useTheme();
@@ -14,6 +15,12 @@ export default function Header() {
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
+      
+      // Calculate scroll progress
+      const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = window.scrollY;
+      const progress = windowHeight > 0 ? (scrolled / windowHeight) * 100 : 0;
+      setScrollProgress(Math.min(100, Math.max(0, progress)));
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -497,6 +504,15 @@ export default function Header() {
           </ul>
         </section>
       </nav>
+      
+      {/* Scroll Progress Bar */}
+      <div 
+        className="absolute bottom-0 left-0 h-1.5 rounded-full bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 dark:from-blue-400 dark:via-blue-500 dark:to-blue-600 transition-all duration-150 ease-out"
+        style={{ 
+          width: `${scrollProgress}%`,
+          boxShadow: scrollProgress > 0 ? '0 0 10px rgba(59, 130, 246, 0.5)' : 'none'
+        }}
+      />
     </header>
   );
 }
