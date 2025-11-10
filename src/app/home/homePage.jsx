@@ -162,7 +162,8 @@ const HomePage = ({ blogPosts }) => {
         data-ad-client="ca-pub-2234384779164146"
         data-ad-slot="1234567890"
         data-ad-format="auto"
-        data-full-width-responsive="true"></ins>
+        data-full-width-responsive="true"
+        data-adtest="on"></ins>
     </main>
   );
 };
