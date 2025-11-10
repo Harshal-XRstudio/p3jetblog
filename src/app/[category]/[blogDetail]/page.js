@@ -4,7 +4,7 @@ import { getBlogDetails } from "@/services/blogDetailServices";
 import { getAllBlogPosts } from "@/services/blogServices";
 import { textToSlug } from "@/helper/helper";
 
-export const dynamic = "force-static"; // ✅ For static export
+export const dynamic = "force-dynamic"; // ✅ For static export
 export const revalidate = false;
 
 // ✅ Correct function name and structure
