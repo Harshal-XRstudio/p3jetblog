@@ -35,13 +35,11 @@ export async function generateStaticParams() {
 
     const params = blogPosts
       .map((blog) => {
-        const title = blog?.heroTitle;
+        // Use slug field from Contentful if available, otherwise generate from title
+        const blogSlug = blog?.slug || (blog?.heroTitle ? textToSlug(blog.heroTitle) : null);
         const categoryValue = Array.isArray(blog?.category)
           ? blog?.category[0]
           : blog?.category;
-
-        // Generate slug from title
-        const blogSlug = title ? textToSlug(title) : null;
         const categorySlug = categoryValue ? textToSlug(categoryValue) : null;
 
         // Only return valid params with both category and blogDetail as strings

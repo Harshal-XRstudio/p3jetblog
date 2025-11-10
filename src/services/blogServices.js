@@ -7,6 +7,7 @@ export async function getAllBlogPosts({ preview = true }) {
           items {
             _id
             heroTitle
+            slug
             category
             heroImage {
               url
