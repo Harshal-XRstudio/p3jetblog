@@ -132,6 +132,7 @@ const HomePage = ({ blogPosts }) => {
               aria-label="Blog posts">
               {blogPosts?.map((blog) => {
                 const title = blog?.heroTitle || "";
+                const blogslug = blog?.slug || textToSlug(title);
                 const description = getDescription(blog);
                 const category = Array.isArray(blog?.category)
                   ? blog?.category[0]
@@ -145,7 +146,7 @@ const HomePage = ({ blogPosts }) => {
                     key={blogId}
                     className="group bg-white dark:bg-gray-800 rounded-lg shadow-md dark:shadow-gray-900 overflow-hidden hover:shadow-xl dark:hover:shadow-gray-800 transition-all duration-300 transform flex flex-col h-full">
                     <Link
-                      href={`/${categorySlug}/${blogId}`}
+                      href={`/${categorySlug}/${blogslug}`}
                       className="flex flex-col h-full"
                       prefetch={false}>
                       {imageUrl && (
