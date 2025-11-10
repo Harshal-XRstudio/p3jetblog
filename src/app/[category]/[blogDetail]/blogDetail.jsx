@@ -1,4 +1,5 @@
 "use client";
+import GoogleAds from "@/components/GoogleAds";
 import { renderRichText } from "@/helper/helper";
 import { getBlogDetails } from "@/services/blogDetailServices";
 import Image from "next/image";
@@ -185,6 +186,7 @@ const BlogDetailPage = ({ category, blogDetails }) => {
           </article>
         </>
       )}
+      <GoogleAds />
     </main>
   );
 };

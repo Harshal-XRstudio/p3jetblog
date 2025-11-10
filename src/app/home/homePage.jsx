@@ -1,4 +1,5 @@
 "use client";
+import GoogleAds from "@/components/GoogleAds";
 import { textToSlug } from "@/helper/helper";
 import Image from "next/image";
 import Link from "next/link";
@@ -156,14 +157,7 @@ const HomePage = ({ blogPosts }) => {
           </section>
         )}
       </div>
-      <ins
-        className="adsbygoogle"
-        style={{ display: "block" }}
-        data-ad-client="ca-pub-2234384779164146"
-        data-ad-slot="1234567890"
-        data-ad-format="auto"
-        data-full-width-responsive="true"
-        data-adtest="on"></ins>
+      <GoogleAds />
     </main>
   );
 };
