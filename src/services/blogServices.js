@@ -1,4 +1,5 @@
 import { fetchGraphQL } from "./contentful";
+import { textToSlug } from "@/helper/helper";
 
 export async function getAllBlogPosts({ preview = true }) {
     const entriesData = await fetchGraphQL(
@@ -22,6 +23,36 @@ export async function getAllBlogPosts({ preview = true }) {
       preview
     );
     return entriesData?.data?.harshalCollection?.items;
+  }
+
+export async function getBlogsByCategory({ category, excludeSlug, limit = 3, preview = true }) {
+    try {
+      const allBlogs = await getAllBlogPosts({ preview });
+      if (!Array.isArray(allBlogs)) return [];
+
+      // Filter blogs by category
+      const categoryBlogs = allBlogs.filter((blog) => {
+        const blogCategory = Array.isArray(blog?.category)
+          ? blog.category[0]
+          : blog.category;
+        return blogCategory === category;
+      });
+
+      // Exclude current blog
+      const filteredBlogs = excludeSlug
+        ? categoryBlogs.filter((blog) => {
+            const blogSlug = blog?.slug || textToSlug(blog?.heroTitle || "");
+            return blogSlug !== excludeSlug;
+          })
+        : categoryBlogs;
+
+      // Shuffle and return limited results
+      const shuffled = [...filteredBlogs].sort(() => Math.random() - 0.5);
+      return shuffled.slice(0, limit);
+    } catch (err) {
+      console.error("Error fetching blogs by category:", err);
+      return [];
+    }
   }
   
 

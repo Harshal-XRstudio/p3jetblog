@@ -1,7 +1,7 @@
 import React from "react";
 import BlogDetailPage from "./blogDetail";
 import { getBlogDetails } from "@/services/blogDetailServices";
-import { getAllBlogPosts } from "@/services/blogServices";
+import { getAllBlogPosts, getBlogsByCategory } from "@/services/blogServices";
 import { textToSlug } from "@/helper/helper";
 
 export const dynamic = "force-dynamic"; // ✅ For static export
@@ -51,5 +51,25 @@ export default async function BlogDetails({ params }) {
   console.log("blogDetail", blogDetail);
   const blogDetails = await getBlogDetailsData(blogDetail);
 
-  return <BlogDetailPage category={category} blogDetails={blogDetails} />;
+  // Get related articles from the same category
+  const blogCategory = blogDetails?.category
+    ? Array.isArray(blogDetails.category)
+      ? blogDetails.category[0]
+      : blogDetails.category
+    : category;
+  
+  const relatedArticles = await getBlogsByCategory({
+    category: blogCategory,
+    excludeSlug: blogDetail,
+    limit: 3,
+    preview: true,
+  });
+
+  return (
+    <BlogDetailPage
+      category={category}
+      blogDetails={blogDetails}
+      relatedArticles={relatedArticles}
+    />
+  );
 }

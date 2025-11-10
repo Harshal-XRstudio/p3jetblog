@@ -154,7 +154,7 @@ const HomePage = ({ blogPosts }) => {
                             src={imageUrl}
                             alt={title}
                             fill
-                            className="object-cover transition-transform duration-300 group-hover:scale-105"
+                            className="object-cover transition-transform"
                           />
                           {category && (
                             <div className="absolute top-2 left-2 sm:top-3 sm:left-3 md:top-4 md:left-4">
