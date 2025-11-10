@@ -166,7 +166,7 @@ const HomePage = ({ blogPosts }) => {
                           )}
                         </div>
                       )}
-                      <div className="p-3 sm:p-4 md:p-5 flex-1 flex flex-col">
+                      <div className="p-2 sm:p-3 md:p-4 flex-1 flex flex-col">
                         <h2 className="text-sm sm:text-base md:text-lg font-bold text-gray-900 dark:text-gray-100 mb-2 sm:mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-200 line-clamp-2">
                           {title}
                         </h2>

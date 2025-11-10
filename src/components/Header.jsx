@@ -109,7 +109,7 @@ export default function Header() {
           : "bg-light_blue dark:bg-gray-950"
       }`}>
       <nav
-        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+        className="w-full mx-auto px-4 sm:px-6 lg:px-8"
         aria-label="Main navigation">
         <div className="flex items-center justify-between h-14 md:h-16">
           {/* Logo/Brand */}
