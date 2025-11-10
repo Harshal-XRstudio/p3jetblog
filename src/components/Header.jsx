@@ -128,28 +128,28 @@ export default function Header() {
             <li>
               <Link
                 href="/"
-                className="text-gray-700 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500 font-medium transition-colors duration-200 px-3 py-2">
+                className="text-gray hover:text-blue-600 dark:hover:text-blue-500 font-medium transition-colors duration-200 px-3 py-2">
                 Home
               </Link>
             </li>
             <li>
               <Link
                 href="/"
-                className="text-gray-700 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500 font-medium transition-colors duration-200 px-3 py-2">
+                className="text-gray hover:text-blue-600 dark:hover:text-blue-500 font-medium transition-colors duration-200 px-3 py-2">
                 Blog
               </Link>
             </li>
             <li>
               <Link
                 href="/"
-                className="text-gray-700 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500 font-medium transition-colors duration-200 px-3 py-2">
+                className="text-gray hover:text-blue-600 dark:hover:text-blue-500 font-medium transition-colors duration-200 px-3 py-2">
                 About
               </Link>
             </li>
             <li>
               <Link
                 href="/"
-                className="text-gray-700 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500 font-medium transition-colors duration-200 px-3 py-2">
+                className="text-gray hover:text-blue-600 dark:hover:text-blue-500 font-medium transition-colors duration-200 px-3 py-2">
                 Contact
               </Link>
             </li>
