@@ -2,7 +2,7 @@
 import { textToSlug } from "@/helper/helper";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect } from "react";
 
 const BlogSkeleton = () => {
   return (
@@ -38,6 +38,13 @@ const BlogSkeleton = () => {
 };
 
 const HomePage = ({ blogPosts }) => {
+  useEffect(() => {
+    try {
+      (window.adsbygoogle = window.adsbygoogle || []).push({});
+    } catch (e) {
+      console.log("Adsense error:", e);
+    }
+  }, []);
   return (
     <main className="mx-auto bg-gray-50 dark:bg-gray-900 min-h-screen py-12 px-4">
       <div className="max-w-7xl mx-auto">
@@ -149,6 +156,13 @@ const HomePage = ({ blogPosts }) => {
           </section>
         )}
       </div>
+      <ins
+        className="adsbygoogle"
+        style={{ display: "block" }}
+        data-ad-client="ca-pub-2234384779164146"
+        data-ad-slot="1234567890"
+        data-ad-format="auto"
+        data-full-width-responsive="true"></ins>
     </main>
   );
 };
