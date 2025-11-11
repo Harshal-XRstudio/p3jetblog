@@ -188,7 +188,7 @@ const BlogDetailPage = ({ category, blogDetails, relatedArticles = [] }) => {
             {/* Back Button */}
 
             <nav
-              className="flex justify-between items-center mt-12 pt-8 border-t border-black/20 dark:border-gray-500"
+              className="flex max-sm:flex-col max-sm:gap-8 max-sm:items-start justify-between items-center mt-12 pt-8 border-t border-black/20 dark:border-gray-500"
               aria-label="Breadcrumb navigation">
               <Link
                 href="/"
@@ -209,8 +209,8 @@ const BlogDetailPage = ({ category, blogDetails, relatedArticles = [] }) => {
               </Link>
               <TooltipProvider>
                 <div className="flex items-center space-x-5">
-                  <div className="text-black dark:text-white text-xl font-semibold">
-                    Share :-
+                  <div className="text-black dark:text-white text-xl font-semibold max-sm:text-lg">
+                    Share :
                   </div>
                   <Tooltip>
                     <TooltipTrigger asChild>
