@@ -45,10 +45,19 @@ async function getBlogDetailsData(blogSlug) {
   }
 }
 
-export default async function BlogDetails({ params }) {
+export default async function BlogDetails({ params, searchParams }) {
   const { category, blogDetail } = await params;
-  console.log("category", category);
-  console.log("blogDetail", blogDetail);
+  
+  // Extract and clean lng parameter
+  let lng = searchParams?.lng || null;
+  if (lng) {
+    // Remove quotes if present (handles %22en-US%22 -> en-US)
+    lng = lng.replace(/^["']|["']$/g, '').trim();
+  }
+  const language = lng || "en-US";
+  
+  console.log('lng=========>', decodeURIComponent(language));
+  
   const blogDetails = await getBlogDetailsData(blogDetail);
 
   // Get related articles from the same category
@@ -57,12 +66,13 @@ export default async function BlogDetails({ params }) {
       ? blogDetails.category[0]
       : blogDetails.category
     : category;
-  
+
   const relatedArticles = await getBlogsByCategory({
     category: blogCategory,
     excludeSlug: blogDetail,
     limit: 3,
     preview: true,
+    lng: language,
   });
 
   return (

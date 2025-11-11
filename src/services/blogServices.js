@@ -1,10 +1,10 @@
 import { fetchGraphQL } from "./contentful";
 import { textToSlug } from "@/helper/helper";
 
-export async function getAllBlogPosts({ preview = true }) {
+export async function getAllBlogPosts({ preview = true, lng = "en-US" }) {
     const entriesData = await fetchGraphQL(
       `query {
-        harshalCollection {
+        harshalCollection(locale: "${lng}") {
           items {
             _id
             heroTitle
@@ -25,9 +25,9 @@ export async function getAllBlogPosts({ preview = true }) {
     return entriesData?.data?.harshalCollection?.items;
   }
 
-export async function getBlogsByCategory({ category, excludeSlug, limit = 3, preview = true }) {
+export async function getBlogsByCategory({ category, excludeSlug, limit = 3, preview = true, lng = "en-US" }) {
     try {
-      const allBlogs = await getAllBlogPosts({ preview });
+      const allBlogs = await getAllBlogPosts({ preview, lng });
       if (!Array.isArray(allBlogs)) return [];
 
       // Filter blogs by category
