@@ -70,7 +70,7 @@ const HomePage = ({ blogPosts }) => {
     blogPosts.forEach((blog) => {
       const category = Array.isArray(blog?.category)
         ? blog?.category[0]
-        : blog?.category || "Uncategorized";
+        : blog?.category || "";
       categoryCount[category] = (categoryCount[category] || 0) + 1;
     });
 
@@ -83,7 +83,7 @@ const HomePage = ({ blogPosts }) => {
     const otherCategoryBlogs = blogPosts.filter((blog) => {
       const category = Array.isArray(blog?.category)
         ? blog?.category[0]
-        : blog?.category || "Uncategorized";
+        : blog?.category || "";
       return category !== mostCommonCategory;
     });
 

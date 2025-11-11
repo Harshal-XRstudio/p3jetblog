@@ -171,7 +171,7 @@ export default function Header() {
               </button>
 
               {isThemeDropdownOpen && (
-                <div className="absolute right-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none z-50">
+                <div className="absolute right-0 mt-2 w-32 bg-white dark:bg-gray-800 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none z-50">
                   <div className="py-1" role="menu">
                     <button
                       onClick={() => {
@@ -181,7 +181,7 @@ export default function Header() {
                       className={`w-full text-left px-4 py-2 text-sm flex items-center space-x-2 ${
                         theme === "light"
                           ? "bg-blue-50 dark:bg-gray-700 text-blue-600 dark:text-blue-500"
-                          : "text-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700"
+                          : "text-gray-700 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700"
                       } transition-colors duration-200`}
                       role="menuitem">
                       <svg
@@ -218,7 +218,7 @@ export default function Header() {
                       className={`w-full text-left px-4 py-2 text-sm flex items-center space-x-2 ${
                         theme === "dark"
                           ? "bg-blue-50 dark:bg-gray-700 text-blue-600 dark:text-blue-500"
-                          : "text-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700"
+                          : "text-gray-700 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700"
                       } transition-colors duration-200`}
                       role="menuitem">
                       <svg
@@ -255,7 +255,7 @@ export default function Header() {
                       className={`w-full text-left px-4 py-2 text-sm flex items-center space-x-2 ${
                         theme === "system"
                           ? "bg-blue-50 dark:bg-gray-700 text-blue-600 dark:text-blue-500"
-                          : "text-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700"
+                          : "text-gray-700 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700"
                       } transition-colors duration-200`}
                       role="menuitem">
                       <svg
