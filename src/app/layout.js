@@ -30,6 +30,11 @@ export default function RootLayout({ children }) {
           crossOrigin="anonymous"
           strategy="afterInteractive"
         />
+        <Script
+          src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js"
+          async
+          custom-element="amp-auto-ads"
+        />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100`}
@@ -42,6 +47,9 @@ export default function RootLayout({ children }) {
           <Footer />
         </ThemeProvider>
       </body>
+      <amp-auto-ads type="adsense"
+        data-ad-client="ca-pub-2234384779164146">
+      </amp-auto-ads>
     </html>
   );
 }
