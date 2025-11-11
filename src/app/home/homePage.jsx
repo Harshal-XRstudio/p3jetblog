@@ -49,7 +49,7 @@ const HomePage = ({ blogPosts }) => {
   // Helper function to extract description
   const getDescription = (blog) => {
     try {
-      if (blog.heroDescription?.json?.content) {
+      if (blog?.heroDescription?.json?.content) {
         const content = blog.heroDescription.json.content;
         if (Array.isArray(content) && content.length > 0) {
           return content[0]?.value || content[0]?.content?.[0]?.value || "";

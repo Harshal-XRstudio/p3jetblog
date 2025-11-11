@@ -47,7 +47,7 @@ const renderTextContent = (content, keyPrefix = '') => {
             href={href}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-500 underline decoration-underline font-medium"
+            className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-500 underline decoration-underline font-medium duration-300 transition-colors"
             style={{ textDecoration: 'underline' }}
           >
             {linkText}
@@ -58,7 +58,7 @@ const renderTextContent = (content, keyPrefix = '') => {
           <Link
             key={key}
             href={href}
-            className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-500 underline decoration-underline font-medium"
+            className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-500 underline decoration-underline font-medium duration-300 transition-colors"
             style={{ textDecoration: 'underline' }}
           >
             {linkText}
@@ -193,7 +193,7 @@ const renderTextContent = (content, keyPrefix = '') => {
       }
       if (node?.nodeType === 'embedded-entry-inline') {
         return (
-          <Link key={index} href={`/${node?.target?.slug}`} className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-500">
+          <Link key={index} href={`/${node?.target?.slug}`} className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-500 duration-300 transition-colors">
             {node?.target?.title}
           </Link>
         );
