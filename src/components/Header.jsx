@@ -63,7 +63,7 @@ export default function Header() {
     if (theme === "light") {
       return (
         <svg
-          className="w-5 h-5"
+          className="w-5 h-5 text-orange-400"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24">
@@ -161,16 +161,26 @@ export default function Header() {
               </Link>
             </li>
 
-            {/* Theme Dropdown */}
+            {/* Theme Toggle */}
             <li className="relative" ref={themeDropdownDesktopRef}>
               <button
-                onClick={() => setIsThemeDropdownOpen(!isThemeDropdownOpen)}
-                className="flex items-center justify-center p-2 rounded-md text-gray-700 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500 hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500 transition-colors duration-200"
+                onClick={() => {
+                  if(theme === "light") {
+                    setTheme("dark");
+                  } else {
+                    setTheme("light");
+                  }
+                }}
+                className={`flex items-center justify-center p-2 rounded-full transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500 ${
+                  theme === "light"
+                    ? "text-orange-400 bg-orange-50 hover:bg-orange-100"
+                    : "text-gray-700 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500 hover:bg-gray-100 dark:hover:bg-gray-800"
+                }`}
                 aria-label="Theme selector">
                 {getThemeIcon()}
               </button>
 
-              {isThemeDropdownOpen && (
+              {/* {isThemeDropdownOpen && (
                 <div className="absolute right-0 mt-2 w-32 bg-white dark:bg-gray-800 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none z-50">
                   <div className="py-1" role="menu">
                     <button
@@ -286,7 +296,7 @@ export default function Header() {
                     </button>
                   </div>
                 </div>
-              )}
+              )} */}
             </li>
           </ul>
 
@@ -295,13 +305,23 @@ export default function Header() {
             {/* Theme button for mobile */}
             <div className="relative" ref={themeDropdownMobileRef}>
               <button
-                onClick={() => setIsThemeDropdownOpen(!isThemeDropdownOpen)}
-                className="inline-flex items-center justify-center p-2 rounded-md text-gray-700 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500 hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500 transition-colors duration-200"
+                onClick={() => {
+                  if(theme === "light") {
+                    setTheme("dark");
+                  } else {
+                    setTheme("light");
+                  }
+                }}
+                className={`inline-flex items-center rounded-full justify-center p-2 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500 ${
+                  theme === "light"
+                    ? "text-orange-400 bg-orange-50 hover:bg-orange-100"
+                    : "text-gray-700 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500 hover:bg-gray-100 dark:hover:bg-gray-800"
+                }`}
                 aria-label="Theme selector">
                 {getThemeIcon()}
               </button>
 
-              {isThemeDropdownOpen && (
+              {/* {isThemeDropdownOpen && (
                 <div className="absolute right-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none z-50">
                   <div className="py-1" role="menu">
                     <button
@@ -417,7 +437,7 @@ export default function Header() {
                     </button>
                   </div>
                 </div>
-              )}
+              )} */}
             </div>
 
             <button

@@ -85,7 +85,7 @@ const BlogDetailPage = ({ category, blogDetails, relatedArticles = [] }) => {
   const blogCategory = blogDetails?.category || "";
 
   return (
-    <main className="min-h-screen bg-gray-50 dark:bg-gray-900">
+    <main className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-all duration-300 ease-in-out">
       {/* Hero Section */}
       {blogDetails && (
         <>
