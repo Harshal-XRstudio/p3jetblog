@@ -16,7 +16,7 @@ export default function Footer() {
               aria-label="Home">
               Blog
             </Link>
-            <p className="text-sm text-gray-400 dark:text-gray-500 mt-4 leading-relaxed">
+            <p className="text-sm text-gray-400 dark:text-gray-400 mt-4 leading-relaxed">
               Discover our latest articles and insights. Stay updated with the
               most recent blog posts and news.
             </p>
@@ -31,28 +31,28 @@ export default function Footer() {
               <li>
                 <Link
                   href="/"
-                  className="text-gray-400 dark:text-gray-500 hover:text-blue-400 dark:hover:text-blue-500 transition-colors duration-200 text-sm">
+                  className="text-gray-400 dark:text-gray-400 hover:text-blue-400 dark:hover:text-blue-500 transition-colors duration-200 text-sm">
                   Home
                 </Link>
               </li>
               <li>
                 <Link
                   href="/"
-                  className="text-gray-400 dark:text-gray-500 hover:text-blue-400 dark:hover:text-blue-500 transition-colors duration-200 text-sm">
+                  className="text-gray-400 dark:text-gray-400 hover:text-blue-400 dark:hover:text-blue-500 transition-colors duration-200 text-sm">
                   Blog
                 </Link>
               </li>
               <li>
                 <Link
                   href="/"
-                  className="text-gray-400 dark:text-gray-500 hover:text-blue-400 dark:hover:text-blue-500 transition-colors duration-200 text-sm">
+                  className="text-gray-400 dark:text-gray-400 hover:text-blue-400 dark:hover:text-blue-500 transition-colors duration-200 text-sm">
                   About
                 </Link>
               </li>
               <li>
                 <Link
                   href="/"
-                  className="text-gray-400 dark:text-gray-500 hover:text-blue-400 dark:hover:text-blue-500 transition-colors duration-200 text-sm">
+                  className="text-gray-400 dark:text-gray-400 hover:text-blue-400 dark:hover:text-blue-500 transition-colors duration-200 text-sm">
                   Contact
                 </Link>
               </li>
@@ -68,28 +68,28 @@ export default function Footer() {
               <li>
                 <Link
                   href="/"
-                  className="text-gray-400 dark:text-gray-500 hover:text-blue-400 dark:hover:text-blue-500 transition-colors duration-200 text-sm">
+                  className="text-gray-400 dark:text-gray-400 hover:text-blue-400 dark:hover:text-blue-500 transition-colors duration-200 text-sm">
                   Technology
                 </Link>
               </li>
               <li>
                 <Link
                   href="/"
-                  className="text-gray-400 dark:text-gray-500 hover:text-blue-400 dark:hover:text-blue-500 transition-colors duration-200 text-sm">
+                  className="text-gray-400 dark:text-gray-400 hover:text-blue-400 dark:hover:text-blue-500 transition-colors duration-200 text-sm">
                   Lifestyle
                 </Link>
               </li>
               <li>
                 <Link
                   href="/"
-                  className="text-gray-400 dark:text-gray-500 hover:text-blue-400 dark:hover:text-blue-500 transition-colors duration-200 text-sm">
+                  className="text-gray-400 dark:text-gray-400 hover:text-blue-400 dark:hover:text-blue-500 transition-colors duration-200 text-sm">
                   Business
                 </Link>
               </li>
               <li>
                 <Link
                   href="/"
-                  className="text-gray-400 dark:text-gray-500 hover:text-blue-400 dark:hover:text-blue-500 transition-colors duration-200 text-sm">
+                  className="text-gray-400 dark:text-gray-400 hover:text-blue-400 dark:hover:text-blue-500 transition-colors duration-200 text-sm">
                   Travel
                 </Link>
               </li>
@@ -104,7 +104,7 @@ export default function Footer() {
             <div className="flex space-x-4">
               <a
                 href="#"
-                className="text-gray-400 dark:text-gray-500 hover:text-blue-400 dark:hover:text-blue-500 transition-colors duration-200"
+                className="text-gray-400 dark:text-gray-400 hover:text-blue-400 dark:hover:text-blue-500 transition-colors duration-200"
                 aria-label="Facebook">
                 <svg
                   className="w-6 h-6"
@@ -116,7 +116,7 @@ export default function Footer() {
               </a>
               <a
                 href="#"
-                className="text-gray-400 dark:text-gray-500 hover:text-blue-400 dark:hover:text-blue-500 transition-colors duration-200"
+                className="text-gray-400 dark:text-gray-400 hover:text-blue-400 dark:hover:text-blue-500 transition-colors duration-200"
                 aria-label="Twitter">
                 <svg
                   className="w-6 h-6"
@@ -128,7 +128,7 @@ export default function Footer() {
               </a>
               <a
                 href="#"
-                className="text-gray-400 dark:text-gray-500 hover:text-blue-400 dark:hover:text-blue-500 transition-colors duration-200"
+                className="text-gray-400 dark:text-gray-400 hover:text-blue-400 dark:hover:text-blue-500 transition-colors duration-200"
                 aria-label="LinkedIn">
                 <svg
                   className="w-6 h-6"
@@ -140,7 +140,7 @@ export default function Footer() {
               </a>
               <a
                 href="#"
-                className="text-gray-400 dark:text-gray-500 hover:text-blue-400 dark:hover:text-blue-500 transition-colors duration-200"
+                className="text-gray-400 dark:text-gray-400 hover:text-blue-400 dark:hover:text-blue-500 transition-colors duration-200"
                 aria-label="Instagram">
                 <svg
                   className="w-6 h-6"
@@ -159,23 +159,23 @@ export default function Footer() {
           className="border-t border-gray-800 dark:border-gray-700 mt-8 pt-8"
           aria-label="Footer bottom section">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <p className="text-sm text-gray-400 dark:text-gray-500 text-center md:text-left">
+            <p className="text-sm text-gray-400 dark:text-gray-400 text-center md:text-left">
               © {currentYear} Blog. All rights reserved.
             </p>
             <div className="flex flex-wrap justify-center md:justify-end gap-4 text-sm">
               <Link
                 href="/"
-                className="text-gray-400 dark:text-gray-500 hover:text-blue-400 dark:hover:text-blue-500 transition-colors duration-200">
+                className="text-gray-400 dark:text-gray-400 hover:text-blue-400 dark:hover:text-blue-500 transition-colors duration-200">
                 Privacy Policy
               </Link>
               <Link
                 href="/"
-                className="text-gray-400 dark:text-gray-500 hover:text-blue-400 dark:hover:text-blue-500 transition-colors duration-200">
+                className="text-gray-400 dark:text-gray-400 hover:text-blue-400 dark:hover:text-blue-500 transition-colors duration-200">
                 Terms of Service
               </Link>
               <Link
                 href="/"
-                className="text-gray-400 dark:text-gray-500 hover:text-blue-400 dark:hover:text-blue-500 transition-colors duration-200">
+                className="text-gray-400 dark:text-gray-400 hover:text-blue-400 dark:hover:text-blue-500 transition-colors duration-200">
                 Cookie Policy
               </Link>
             </div>
