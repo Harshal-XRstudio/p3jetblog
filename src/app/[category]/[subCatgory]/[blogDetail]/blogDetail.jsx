@@ -82,7 +82,7 @@ const BlogDetailPage = ({ category, blogDetails, relatedArticles = [] }) => {
   const publishedBy = blogDetails?.publishedBy || "";
   const description = blogDetails?.heroDescription?.json;
   const richTextLinks = blogDetails?.heroDescription?.links;
-  const blogCategory = blogDetails?.category || "";
+  const blogSubCategory = blogDetails?.subCatgory || "";
 
   return (
     <main className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-all duration-300 ease-in-out">
@@ -103,11 +103,13 @@ const BlogDetailPage = ({ category, blogDetails, relatedArticles = [] }) => {
               <div className="absolute inset-0 bg-black/40 dark:bg-black/50"></div>
               <div className="absolute bottom-0 left-0 right-0 p-8 md:p-12">
                 <div className="max-w-5xl mx-auto">
-                  <div className="mb-4">
-                    <span className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm text-gray-800 dark:text-gray-200 text-sm font-semibold px-4 py-2 rounded-full inline-block">
-                      {blogCategory}
-                    </span>
-                  </div>
+                  {blogSubCategory && (
+                    <div className="mb-4">
+                      <span className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm text-gray-800 dark:text-gray-200 text-sm font-semibold px-4 py-2 rounded-full inline-block">
+                        {blogSubCategory}
+                      </span>
+                    </div>
+                  )}
                   {title && (
                     <h1 className="text-3xl md:text-5xl font-bold text-white mb-4 drop-shadow-lg">
                       {title}

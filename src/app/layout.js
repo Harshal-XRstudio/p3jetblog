@@ -22,7 +22,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning={true}>
       <head>
         <Script
           async
@@ -47,9 +47,9 @@ export default function RootLayout({ children }) {
           <Footer />
         </ThemeProvider>
       </body>
-      <amp-auto-ads type="adsense"
+      {/* <amp-auto-ads type="adsense"
         data-ad-client="ca-pub-2234384779164146">
-      </amp-auto-ads>
+      </amp-auto-ads> */}
     </html>
   );
 }

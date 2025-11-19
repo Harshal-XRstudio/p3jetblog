@@ -7,6 +7,9 @@ export async function getBlogDetails({ slug, preview = true, lng = "en-US" }) {
         items {
             _id
             heroTitle
+            metaTitle
+            metaDescription
+            metaKeywords
             category
             subCatgory
             heroImage {

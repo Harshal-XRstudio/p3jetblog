@@ -7,6 +7,29 @@ import { textToSlug } from "@/helper/helper";
 export const dynamic = "force-dynamic"; // ✅ For static export
 export const revalidate = false;
 
+
+export async function generateMetadata({ params }) {
+  const { category, subCatgory, blogDetail } = await params;
+  const blogDetails = await getBlogDetailsData(blogDetail);
+  
+  return {
+    title: blogDetails?.metaTitle || "",
+    description: blogDetails?.metaDescription || "",
+    keywords: blogDetails?.metaKeywords || "",
+    alternates: {
+      canonical: `${process.env.NEXT_PUBLIC_BASE_URL}/${category}/${subCatgory}/${blogDetails?.slug}`,
+
+    },
+    openGraph: {
+      type: "website",
+      locale: "en_US",
+      site_name: "p3jets",
+      images: [blogDetails?.heroImage?.url || ""],
+    },
+  };
+}
+
+
 // ✅ Correct function name and structure
 export async function generateStaticParams() {
   try {
@@ -55,17 +78,8 @@ export default async function BlogDetails({ params, searchParams }) {
     lng = lng.replace(/^["']|["']$/g, '').trim();
   }
   const language = lng || "en-US";
-  
-  console.log('lng=========>', category, subCatgory, blogDetail);
-  
+    
   const blogDetails = await getBlogDetailsData(blogDetail);
-
-  // Get related articles from the same category
-  const blogCategory = blogDetails?.category
-    ? Array.isArray(blogDetails.category)
-      ? blogDetails.category[0]
-      : blogDetails.category
-    : category;
 
   const relatedArticles = await getBlogsBySubCatgory({
     subCatgory: subCatgory,

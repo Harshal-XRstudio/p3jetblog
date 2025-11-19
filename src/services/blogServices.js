@@ -9,6 +9,9 @@ export async function getAllBlogPosts({ preview = true, lng = "en-US" }) {
             _id
             heroTitle
             slug
+            metaTitle
+            metaDescription
+            metaKeywords
             category
             subCatgory
             heroImage {
