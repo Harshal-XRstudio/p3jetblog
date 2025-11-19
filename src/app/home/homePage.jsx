@@ -155,7 +155,7 @@ const HomePage = ({ blogPosts }) => {
                         <div className="relative w-full h-40 sm:h-44 md:h-48 overflow-hidden">
                           <Image
                             src={imageUrl}
-                            alt={title || "imag"}
+                            alt={title || "image"}
                             fill
                             className="object-cover transition-transform"
                           />

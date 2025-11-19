@@ -183,7 +183,7 @@ const renderTextContent = (content, keyPrefix = '') => {
           <div key={index} className="my-6 flex justify-center">
             <Image
               src={imageUrl}
-              alt={altText || }
+              alt={altText || "image"}
               width={width}
               height={height}
               className="rounded-lg object-contain"
