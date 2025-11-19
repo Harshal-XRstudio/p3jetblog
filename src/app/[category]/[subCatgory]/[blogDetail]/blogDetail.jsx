@@ -95,7 +95,7 @@ const BlogDetailPage = ({ category, blogDetails, relatedArticles = [] }) => {
               role="banner">
               <Image
                 src={imageUrl}
-                alt={title}
+                alt={title || "image"}
                 fill
                 className="object-cover"
                 priority
@@ -400,7 +400,7 @@ const BlogDetailPage = ({ category, blogDetails, relatedArticles = [] }) => {
                           <div className="relative w-full h-48 overflow-hidden">
                             <Image
                               src={articleImageUrl}
-                              alt={articleTitle}
+                              alt={articleTitle || "image"}
                               fill
                               className="object-cover transition-transform "
                             />

@@ -163,7 +163,7 @@ const renderTextContent = (content, keyPrefix = '') => {
       }
       if (node?.nodeType === 'image') {
         return (
-          <Image key={index} src={node?.file?.url} alt={node?.file?.title} width={node?.file?.width} height={node?.file?.height} />
+          <Image key={index} src={node?.file?.url} alt={node?.file?.title || "image"} width={node?.file?.width} height={node?.file?.height} />
         );
       }
       if (node?.nodeType === 'embedded-asset-block') {
@@ -183,7 +183,7 @@ const renderTextContent = (content, keyPrefix = '') => {
           <div key={index} className="my-6 flex justify-center">
             <Image
               src={imageUrl}
-              alt={altText}
+              alt={altText || }
               width={width}
               height={height}
               className="rounded-lg object-contain"
