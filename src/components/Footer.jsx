@@ -164,20 +164,20 @@ export default function Footer() {
             </p>
             <div className="flex flex-wrap justify-center md:justify-end gap-4 text-sm">
               <Link
-                href="/"
+                href="/privacy-policy"
                 className="text-gray-400 dark:text-gray-400 hover:text-blue-400 dark:hover:text-blue-500 transition-colors duration-200">
                 Privacy Policy
               </Link>
               <Link
-                href="/"
+                href="/terms-condition"
                 className="text-gray-400 dark:text-gray-400 hover:text-blue-400 dark:hover:text-blue-500 transition-colors duration-200">
                 Terms of Service
               </Link>
-              <Link
+              {/* <Link
                 href="/"
                 className="text-gray-400 dark:text-gray-400 hover:text-blue-400 dark:hover:text-blue-500 transition-colors duration-200">
                 Cookie Policy
-              </Link>
+              </Link> */}
             </div>
           </div>
         </section>
