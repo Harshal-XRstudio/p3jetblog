@@ -175,7 +175,7 @@ export default function Header() {
                     setTheme("light");
                   }
                 }}
-                className={`flex items-center justify-center p-2 rounded-full transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500 ${
+                className={`flex items-center justify-center p-2 rounded-full border-2 border-orange-400 dark:border-blue-600 transition-colors duration-200 ${
                   theme === "light"
                     ? "text-orange-400 bg-orange-50 hover:bg-orange-100"
                     : "text-gray-700 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500 hover:bg-gray-100 dark:hover:bg-gray-800"
