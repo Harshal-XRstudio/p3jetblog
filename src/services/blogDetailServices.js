@@ -8,6 +8,7 @@ export async function getBlogDetails({ slug, preview = true, lng = "en-US" }) {
             _id
             heroTitle
             category
+            subCatgory
             heroImage {
               url
             }

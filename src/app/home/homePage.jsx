@@ -39,6 +39,7 @@ const BlogSkeleton = () => {
 };
 
 const HomePage = ({ blogPosts }) => {
+  console.log('blogPosts',blogPosts)
   useEffect(() => {
     try {
       (window.adsbygoogle = window.adsbygoogle || []).push({});
@@ -104,14 +105,11 @@ const HomePage = ({ blogPosts }) => {
         </div>
 
         {/* Main Content Area */}
-        <div className="col-span-12 xl:col-span-8 relative max-w-[1280px] mx-auto xl:mx-0">
-          {/* Header Section */}
+        <div className="col-span-12 xl:col-span-8 relative max-w-[1200px] mx-auto xl:mx-0">
           <header className="mb-6 sm:mb-8 md:mb-10 text-center">
-            {/* <h1 className='text-4xl font-bold text-gray-900 dark:text-gray-100 mb-2'> Blog Posts</h1> */}
-            {/* <p className='text-gray-600 dark:text-gray-400'>Discover our latest articles and insights</p> */}
+   
           </header>
 
-          {/* Blog Posts Section */}
           {false ? (
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-5 md:gap-6 lg:gap-6">
               {[...Array(6)].map((_, index) => (
@@ -137,16 +135,20 @@ const HomePage = ({ blogPosts }) => {
                 const category = Array.isArray(blog?.category)
                   ? blog?.category[0]
                   : blog?.category || "";
+                const subCatgory = Array.isArray(blog?.subCatgory)
+                  ? blog?.subCatgory[0]
+                  : blog?.subCatgory || "";
                 const imageUrl = blog?.heroImage?.url || "";
                 const blogId = textToSlug(title);
                 const categorySlug = textToSlug(category);
+                const subCatgorySlug = textToSlug(subCatgory);
 
                 return (
                   <article
                     key={blogId}
                     className="group bg-white dark:bg-gray-800 rounded-lg shadow-md dark:shadow-gray-900 overflow-hidden hover:shadow-xl dark:hover:shadow-gray-800 transition-all duration-300 transform flex flex-col h-full">
                     <Link
-                      href={`/${categorySlug}/${blogslug}`}
+                      href={`/${categorySlug}/${subCatgorySlug}/${blogslug}`}
                       className="flex flex-col h-full"
                       prefetch={false}>
                       {imageUrl && (
@@ -157,10 +159,10 @@ const HomePage = ({ blogPosts }) => {
                             fill
                             className="object-cover transition-transform"
                           />
-                          {category && (
+                          {subCatgory && (
                             <div className="absolute top-2 left-2 sm:top-3 sm:left-3 md:top-4 md:left-4">
                               <span className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm text-gray-800 dark:text-gray-200 text-xs font-semibold px-2 py-1 sm:px-3 sm:py-1 rounded-full">
-                                {category}
+                                {subCatgory}
                               </span>
                             </div>
                           )}

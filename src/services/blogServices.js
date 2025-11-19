@@ -10,6 +10,7 @@ export async function getAllBlogPosts({ preview = true, lng = "en-US" }) {
             heroTitle
             slug
             category
+            subCatgory
             heroImage {
               url
             }
@@ -25,26 +26,26 @@ export async function getAllBlogPosts({ preview = true, lng = "en-US" }) {
     return entriesData?.data?.harshalCollection?.items;
   }
 
-export async function getBlogsByCategory({ category, excludeSlug, limit = 3, preview = true, lng = "en-US" }) {
+export async function getBlogsBySubCatgory({ subCatgory, excludeSlug, limit = 3, preview = true, lng = "en-US" }) {
     try {
       const allBlogs = await getAllBlogPosts({ preview, lng });
       if (!Array.isArray(allBlogs)) return [];
 
       // Filter blogs by category
-      const categoryBlogs = allBlogs.filter((blog) => {
-        const blogCategory = Array.isArray(blog?.category)
-          ? blog.category[0]
-          : blog.category;
-        return blogCategory === category;
+      const subCatgoryBlogs = allBlogs.filter((blog) => {
+        const blogSubCatgory = Array.isArray(blog?.subCatgory)
+          ? blog.subCatgory[0]
+          : blog.subCatgory;
+        return blogSubCatgory === subCatgory;
       });
 
       // Exclude current blog
       const filteredBlogs = excludeSlug
-        ? categoryBlogs.filter((blog) => {
+        ? subCatgoryBlogs.filter((blog) => {
             const blogSlug = blog?.slug || textToSlug(blog?.heroTitle || "");
             return blogSlug !== excludeSlug;
           })
-        : categoryBlogs;
+        : subCatgoryBlogs;
 
       // Shuffle and return limited results
       const shuffled = [...filteredBlogs].sort(() => Math.random() - 0.5);

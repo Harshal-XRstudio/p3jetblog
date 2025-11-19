@@ -1,7 +1,7 @@
 import React from "react";
 import BlogDetailPage from "./blogDetail";
 import { getBlogDetails } from "@/services/blogDetailServices";
-import { getAllBlogPosts, getBlogsByCategory } from "@/services/blogServices";
+import { getAllBlogPosts, getBlogsBySubCatgory } from "@/services/blogServices";
 import { textToSlug } from "@/helper/helper";
 
 export const dynamic = "force-dynamic"; // ✅ For static export
@@ -46,7 +46,7 @@ async function getBlogDetailsData(blogSlug) {
 }
 
 export default async function BlogDetails({ params, searchParams }) {
-  const { category, blogDetail } = await params;
+  const { category, subCatgory, blogDetail } = await params;
   
   // Extract and clean lng parameter
   let lng = searchParams?.lng || null;
@@ -56,7 +56,7 @@ export default async function BlogDetails({ params, searchParams }) {
   }
   const language = lng || "en-US";
   
-  console.log('lng=========>', decodeURIComponent(language));
+  console.log('lng=========>', category, subCatgory, blogDetail);
   
   const blogDetails = await getBlogDetailsData(blogDetail);
 
@@ -67,8 +67,8 @@ export default async function BlogDetails({ params, searchParams }) {
       : blogDetails.category
     : category;
 
-  const relatedArticles = await getBlogsByCategory({
-    category: blogCategory,
+  const relatedArticles = await getBlogsBySubCatgory({
+    subCatgory: subCatgory,
     excludeSlug: blogDetail,
     limit: 3,
     preview: true,
