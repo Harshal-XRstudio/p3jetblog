@@ -93,7 +93,7 @@ export default function Header() {
 
   return (
     <header
-      className={`sticky top-0 z-50 w-full transition-all duration-300 ${
+      className={`sticky top-0 z-50 w-full transition-all duration-500 ${
         isScrolled
           ? "bg-light_blue/70 dark:bg-gray-950/70 backdrop-blur-md shadow-lg border-b border-gray-200/20 dark:border-gray-700/20"
           : "bg-light_blue dark:bg-gray-950"
@@ -465,7 +465,7 @@ export default function Header() {
         {/* Mobile Navigation Menu */}
         <section
           id="mobile-menu"
-          className={`md:hidden transition-all duration-300 ease-in-out ${
+          className={`md:hidden transition-all duration-500 ease-in-out ${
             isMenuOpen
               ? "max-h-96 opacity-100"
               : "max-h-0 opacity-0 overflow-hidden"

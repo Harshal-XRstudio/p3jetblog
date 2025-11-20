@@ -85,7 +85,7 @@ const BlogDetailPage = ({ category, blogDetails, relatedArticles = [] }) => {
   const blogSubCategory = blogDetails?.subCatgory || "";
 
   return (
-    <main className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-all duration-300 ease-in-out">
+    <main className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-all duration-500 ease-in-out">
       {/* Hero Section */}
       {blogDetails && (
         <>
@@ -391,7 +391,7 @@ const BlogDetailPage = ({ category, blogDetails, relatedArticles = [] }) => {
                   return (
                     <article
                       key={articleSlug}
-                      className="group bg-white dark:bg-gray-800 rounded-lg shadow-md dark:shadow-gray-900 overflow-hidden hover:shadow-xl dark:hover:shadow-gray-800 transition-all duration-300 transform flex flex-col h-full">
+                      className="group bg-white dark:bg-gray-800 rounded-lg shadow-md dark:shadow-gray-900 overflow-hidden hover:shadow-xl dark:hover:shadow-gray-800 transition-all duration-500 transform flex flex-col h-full">
                       <Link
                         href={`/${categorySlug}/${articleSlug}`}
                         className="flex flex-col h-full"
