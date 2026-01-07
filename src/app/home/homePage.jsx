@@ -1,5 +1,6 @@
 "use client";
 import GoogleAds from "@/components/GoogleAds";
+import NewsCarousel from "@/components/NewsCarousel";
 import { textToSlug } from "@/helper/helper";
 import Image from "next/image";
 import Link from "next/link";
@@ -97,7 +98,7 @@ const HomePage = ({ blogPosts }) => {
   const relatedArticles = getRelatedArticles();
 
   return (
-    <main className="bg-gray-50 dark:bg-gray-900  transition-all duration-500 ease-in-out min-h-screen w-full py-6 sm:py-8 md:py-10 lg:py-12 px-1 sm:px-2 md:px-4 lg:px-6 xl:px-8 2xl:px-12">
+    <main className="bg-gray-50 dark:bg-gray-900  transition-all duration-500 ease-in-out min-h-screen w-full py-2 sm:py-4 md:py-6 lg:py-10 px-1 sm:px-2 md:px-4 lg:px-6 xl:px-8 2xl:px-12">
       <div className="w-full max-w-[1920px] mx-auto grid grid-cols-12 gap-4 sm:gap-6 md:gap-8">
         {/* Left Sidebar - Hidden on screens smaller than xl */}
         <div className="max-xl:hidden col-span-2">
@@ -109,6 +110,13 @@ const HomePage = ({ blogPosts }) => {
           <header className="mb-6 sm:mb-8 md:mb-10 text-center">
    
           </header>
+
+          {/* News Carousel - Latest/Highlighted Posts */}
+          {blogPosts && blogPosts.length > 0 && (
+            <div className="mb-6 sm:mb-8 md:mb-10">
+              <NewsCarousel blogPosts={blogPosts} autoSlideInterval={5000} />
+            </div>
+          )}
 
           {false ? (
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-5 md:gap-6 lg:gap-6">

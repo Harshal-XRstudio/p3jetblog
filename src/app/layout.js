@@ -4,6 +4,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { ThemeProvider } from "../contexts/ThemeProvider";
 import Script from "next/script";
+import ClickSpark from "@/components/ClickSpark";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -40,11 +41,21 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100`}
       >
         <ThemeProvider>
-          <Header />
-          <div className="flex-grow">
-            {children}
-          </div>
-          <Footer />
+          <ClickSpark
+            sparkColor='#3b82f6'
+            sparkSize={10}
+            sparkRadius={15}
+            sparkCount={8}
+            duration={400}
+          >
+            <div className="flex flex-col min-h-screen">
+              <Header />
+              <div className="flex-grow">
+                {children}
+              </div>
+              <Footer />
+            </div>
+          </ClickSpark>
         </ThemeProvider>
       </body>
       {/* <amp-auto-ads type="adsense"
